@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ASR CRM — Publish &amp; Share</title>
+  <link rel="stylesheet" href="assets/colors_and_type.css" />
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; }
+    body {
+      background: var(--asr-off-white, #F7F6FB);
+      color: var(--fg-primary, #1a1430);
+      font-family: var(--font-body, 'Barlow', sans-serif);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap { max-width: 880px; margin: 0 auto; padding: 0 28px 100px; }
+
+    /* hero */
+    .hero { background: var(--asr-navy); color: #fff; margin-bottom: 48px; position: relative; overflow: hidden; }
+    .hero::after { content: ''; position: absolute; right: -120px; bottom: -120px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(255,206,66,.16), transparent 68%); }
+    .hero-inner { max-width: 880px; margin: 0 auto; padding: 56px 28px 48px; position: relative; z-index: 1; }
+    .eyebrow { font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--asr-gold); font-weight: 700; }
+    .hero h1 { font-family: var(--font-display, 'Cairo', sans-serif); color: #fff; font-weight: 900; font-size: 2.6rem; line-height: 1.1; margin: 14px 0 12px; letter-spacing: -.01em; }
+    .hero p { font-size: 1.05rem; color: rgba(255,255,255,.82); max-width: 620px; margin: 0; }
+
+    h2 { font-family: var(--font-display, 'Cairo', sans-serif); font-weight: 800; color: var(--asr-navy); font-size: 1.5rem; margin: 52px 0 6px; letter-spacing: -.01em; }
+    h2 .num { display: inline-grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--asr-gold); color: var(--asr-navy); font-size: 1rem; font-weight: 900; margin-right: 12px; vertical-align: 3px; }
+    .lead { color: var(--fg-secondary, #4b4564); margin: 0 0 4px; }
+
+    .card { background: #fff; border: 1px solid var(--border-subtle, #ECE9F3); border-radius: 16px; padding: 26px 28px; box-shadow: 0 1px 2px rgba(36,11,96,.05); margin-top: 18px; }
+    .card h3 { margin: 0 0 4px; color: var(--asr-navy); font-size: 1.15rem; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+    .pill { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; padding: 3px 10px; border-radius: 999px; }
+    .pill.best { background: #E8F6EF; color: #1F8A5B; }
+    .pill.dev { background: var(--asr-navy-10); color: var(--asr-purple-mid); }
+    .pill.alt { background: var(--asr-gold-pale); color: var(--asr-gold-dark); }
+
+    ol.steps { margin: 14px 0 0; padding: 0; counter-reset: s; list-style: none; }
+    ol.steps li { position: relative; padding: 0 0 14px 38px; }
+    ol.steps li::before { counter-increment: s; content: counter(s); position: absolute; left: 0; top: -1px; width: 24px; height: 24px; border-radius: 50%; background: var(--asr-navy-10); color: var(--asr-navy); font-size: 13px; font-weight: 700; display: grid; place-items: center; }
+    ol.steps li:last-child { padding-bottom: 0; }
+
+    a { color: var(--asr-purple-mid); font-weight: 600; }
+    code { font-family: var(--font-mono, 'SFMono-Regular', monospace); background: var(--asr-navy-10); color: var(--asr-navy); padding: 2px 7px; border-radius: 6px; font-size: .88em; }
+    pre { background: #1c0a4d; color: #f4f0ff; padding: 16px 18px; border-radius: 12px; overflow-x: auto; font-family: var(--font-mono, monospace); font-size: 13px; line-height: 1.7; }
+    pre .c { color: #b69cf0; }
+
+    .note { display: flex; gap: 14px; background: var(--asr-gold-pale); border-radius: 12px; padding: 16px 18px; margin-top: 18px; }
+    .note .ic { flex: none; width: 26px; height: 26px; }
+    .note strong { color: var(--asr-gold-dark); }
+    .note p { margin: 0; font-size: .95rem; color: #6b5413; }
+
+    .files { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; }
+    .file { display: flex; align-items: center; gap: 10px; font-size: 13px; background: #fff; border: 1px solid var(--border-subtle, #ECE9F3); border-radius: 10px; padding: 10px 12px; }
+    .file .dot { width: 8px; height: 8px; border-radius: 2px; flex: none; }
+    .muted { color: var(--fg-muted, #8a83a3); }
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 640px) { .grid2, .files { grid-template-columns: 1fr; } .hero h1 { font-size: 2rem; } }
+    .checklist { list-style: none; padding: 0; margin: 12px 0 0; }
+    .checklist li { padding: 7px 0 7px 30px; position: relative; border-bottom: 1px solid var(--border-subtle, #ECE9F3); }
+    .checklist li:last-child { border-bottom: none; }
+    .checklist li::before { content: '✓'; position: absolute; left: 0; top: 7px; color: #1F8A5B; font-weight: 800; }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">Africa Specialty Risks · Syndicate 2454</div>
+      <h1>Publishing the ASR CRM demo</h1>
+      <p>Three ways to put this prototype online so colleagues, brokers or stakeholders can open a link and have a play — plus what to do before it becomes a real production system.</p>
+    </div>
+  </div>
+
+  <div class="wrap">
+
+    <p class="lead">The CRM is a self-contained web app — a set of HTML, CSS and JavaScript files with no server or database required. That makes it trivial to host on any static-site service for free. Pick the route that suits you.</p>
+
+    <div class="note">
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#E6AA00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+      <p><strong>Before you share:</strong> the app saves each visitor's edits in <em>their own browser</em>, so everyone gets a clean, private copy of the sample data. There's a <strong>Reset demo data</strong> button inside the app (open the <em>About this demo</em> panel via the&nbsp;ⓘ icon).</p>
+    </div>
+
+    <h2><span class="num">1</span>Netlify Drop</h2>
+    <p class="lead">The fastest path — a live URL in under a minute, no account setup, no command line.</p>
+    <div class="card">
+      <h3>Drag-and-drop hosting <span class="pill best">Easiest · recommended</span></h3>
+      <ol class="steps">
+        <li>Download this project as a folder (use the download option in the chat, or export the whole project).</li>
+        <li>Go to <a href="https://app.netlify.com/drop" target="_blank">app.netlify.com/drop</a>.</li>
+        <li>Drag the <strong>entire project folder</strong> onto the page.</li>
+        <li>Netlify gives you an instant URL like <code>asr-crm-demo.netlify.app</code> — share it with anyone.</li>
+        <li>To update later, drag the folder again, or connect it to a GitHub repo for automatic deploys.</li>
+      </ol>
+      <div class="note">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#E6AA00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20zM12 16v-4M12 8h.01"/></svg>
+        <p>Make sure the folder you drop contains <code>ASR CRM.html</code> at its top level. Rename that file to <code>index.html</code> first if you want the URL to open the app directly without the filename on the end.</p>
+      </div>
+    </div>
+
+    <h2><span class="num">2</span>Vercel or GitHub Pages</h2>
+    <p class="lead">A more permanent home with a memorable address and easy updates — ideal once the demo is being shared more widely.</p>
+    <div class="grid2">
+      <div class="card">
+        <h3>Vercel <span class="pill dev">Free</span></h3>
+        <ol class="steps">
+          <li>Create a free account at <a href="https://vercel.com" target="_blank">vercel.com</a>.</li>
+          <li>Click <strong>Add New → Project</strong> and import (or drag) the project folder.</li>
+          <li>No build settings needed — it's a static site. Click <strong>Deploy</strong>.</li>
+          <li>You get a <code>.vercel.app</code> URL and can add a custom domain.</li>
+        </ol>
+      </div>
+      <div class="card">
+        <h3>GitHub Pages <span class="pill dev">Free</span></h3>
+        <ol class="steps">
+          <li>Create a GitHub repository and upload the project files.</li>
+          <li>Rename <code>ASR CRM.html</code> to <code>index.html</code>.</li>
+          <li>In <strong>Settings → Pages</strong>, set the source to your main branch.</li>
+          <li>Your site appears at <code>yourname.github.io/repo</code>.</li>
+        </ol>
+      </div>
+    </div>
+
+    <h2><span class="num">3</span>The single-file version</h2>
+    <p class="lead">Everything — code, styles, fonts, logos — packed into one HTML file.</p>
+    <div class="card">
+      <h3><code>ASR CRM (standalone).html</code> <span class="pill alt">Offline-capable</span></h3>
+      <p style="margin-top:6px">This file works on its own with no other files alongside it. Use it to:</p>
+      <ul class="checklist">
+        <li>Email the demo to someone — they double-click to open it, even offline.</li>
+        <li>Drop it onto Netlify/Vercel on its own for a one-file site.</li>
+        <li>Put it on a shared drive or SharePoint.</li>
+      </ul>
+      <p class="muted" style="margin:14px 0 0; font-size:13px">Trade-off: it's a single large file, so updates mean re-exporting it. For an evolving demo, host the folder (options 1–2) instead.</p>
+    </div>
+
+    <h2>Making it production-ready</h2>
+    <p class="lead">The demo is built to be readable and editable. A few steps turn it into something robust enough for ongoing internal use.</p>
+    <div class="card">
+      <ul class="checklist">
+        <li><strong>Pre-compile the code.</strong> The demo compiles its JavaScript in the browser on each load (fine for a demo, slightly slower to start). For production, pre-build it with a tool like Vite so it loads instantly. Your developer / IT team can do this from the same source files.</li>
+        <li><strong>Add a login.</strong> Netlify, Vercel and Cloudflare all offer password protection or single-sign-on so only invited people can open the link — useful while it contains placeholder data.</li>
+        <li><strong>Connect real data.</strong> Today the app uses illustrative sample data held in the browser. A production version would read and write to a database or to your existing systems (e.g. Navigator PAS, Power BI) through an API.</li>
+        <li><strong>Use a custom domain.</strong> All three hosts let you point an address like <code>crm-demo.africaspecialtyrisks.com</code> at the site.</li>
+      </ul>
+    </div>
+
+    <h2>What's in the project</h2>
+    <p class="lead">For whoever helps you host or extend it — here's how the files fit together.</p>
+    <div class="files">
+      <div class="file"><span class="dot" style="background:#240B60"></span><code>ASR CRM.html</code> — the app entry point</div>
+      <div class="file"><span class="dot" style="background:#0E7C86"></span><code>ASR CRM (standalone).html</code> — one-file build</div>
+      <div class="file"><span class="dot" style="background:#E6AA00"></span><code>app.jsx</code> — main application &amp; state</div>
+      <div class="file"><span class="dot" style="background:#3BA4C8"></span><code>data.js</code> — sample data &amp; platforms</div>
+      <div class="file"><span class="dot" style="background:#4A4F8D"></span><code>pipeline / contacts / activity …</code> — screens</div>
+      <div class="file"><span class="dot" style="background:#1F8A5B"></span><code>app.css</code> + <code>assets/</code> — styles, fonts, logos</div>
+    </div>
+
+    <p class="muted" style="margin-top:40px; font-size:13px; text-align:center">Africa Specialty Risks · ASR CRM prototype · illustrative data only</p>
+  </div>
+</body>
+</html>

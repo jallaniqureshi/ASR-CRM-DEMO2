@@ -1,0 +1,230 @@
+/*
+ * Africa Specialty Risks (ASR) — Design System
+ * Colors & Typography CSS Variables
+ * Source: ASR Powerpoint V2 Feb 2025
+ */
+
+/* ============================================================
+   GOOGLE FONTS IMPORT
+   NOTE: Helvetica Light is a licensed font. Cairo (Google Fonts)
+   is used as the primary substitute. Helvetica/Arial as fallback.
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Barlow:wght@300;400;500;600;700&display=swap');
+
+:root {
+
+  /* ============================================================
+     BRAND COLORS — Core Palette
+     ============================================================ */
+
+  /* Primary — Deep Navy Indigo */
+  --asr-navy:         #240B60;
+  --asr-navy-80:      #4F3580;
+  --asr-navy-60:      #7A60A0;
+  --asr-navy-40:      #A48BBF;
+  --asr-navy-20:      #CFB5DF;
+  --asr-navy-10:      #F0EAF8;
+
+  /* Gold / Amber — Brand Accent */
+  --asr-gold:         #FFCE42;
+  --asr-gold-dark:    #E6AA00;
+  --asr-gold-light:   #FFE28A;
+  --asr-gold-pale:    #FFF5CC;
+
+  /* Secondary Purple-Blue Scale */
+  --asr-purple-mid:   #4A4F8D;
+  --asr-blue-muted:   #8B9FB7;
+  --asr-blue-light:   #ABC0CC;
+  --asr-blue-pale:    #CDDDE1;
+
+  /* Sky Blue (background texture) */
+  --asr-sky:          #3BA4C8;
+  --asr-sky-light:    #7DC4DC;
+  --asr-sky-pale:     #D0EEF7;
+
+  /* Neutrals */
+  --asr-white:        #FFFFFF;
+  --asr-off-white:    #F5F5F5;
+  --asr-grey-100:     #E8E8E8;
+  --asr-grey-200:     #C8C8C8;
+  --asr-grey-400:     #8A8A8A;
+  --asr-grey-600:     #555555;
+  --asr-grey-800:     #2A2A2A;
+  --asr-black:        #000000;
+
+  /* ============================================================
+     SEMANTIC COLOR TOKENS
+     ============================================================ */
+
+  /* Backgrounds */
+  --bg-primary:        var(--asr-white);
+  --bg-dark:           var(--asr-navy);
+  --bg-subtle:         var(--asr-navy-10);
+  --bg-muted:          var(--asr-blue-pale);
+  --bg-accent:         var(--asr-gold);
+  --bg-sky:            var(--asr-sky);
+
+  /* Foreground / Text */
+  --fg-primary:        var(--asr-navy);
+  --fg-secondary:      var(--asr-purple-mid);
+  --fg-muted:          var(--asr-blue-muted);
+  --fg-on-dark:        var(--asr-white);
+  --fg-on-gold:        var(--asr-navy);
+  --fg-accent:         var(--asr-gold);
+
+  /* Borders */
+  --border-default:    var(--asr-grey-200);
+  --border-subtle:     var(--asr-grey-100);
+  --border-brand:      var(--asr-navy);
+  --border-accent:     var(--asr-gold);
+
+  /* ============================================================
+     TYPOGRAPHY — Font Families
+     NOTE: Helvetica Light substituted with Cairo (Google Fonts).
+     Please provide Helvetica Neue LT Pro files for exact match.
+     ============================================================ */
+
+  --font-display:      'Cairo', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-body:         'Cairo', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-mono:         'Courier New', Courier, monospace;
+
+  /* Font Weights */
+  --fw-light:          300;
+  --fw-regular:        400;
+  --fw-semibold:       600;
+  --fw-bold:           700;
+  --fw-black:          900;
+
+  /* ============================================================
+     TYPE SCALE — Slide/Document context (1920×1080 base)
+     ============================================================ */
+
+  /* Display — Hero headlines on title slides */
+  --type-display-xl:   clamp(3rem, 5vw, 5rem);
+  --type-display-lg:   clamp(2.25rem, 3.5vw, 3.5rem);
+  --type-display-md:   clamp(1.75rem, 2.5vw, 2.5rem);
+
+  /* Headings */
+  --type-h1:           clamp(1.5rem, 2vw, 2rem);
+  --type-h2:           clamp(1.25rem, 1.6vw, 1.6rem);
+  --type-h3:           clamp(1.1rem, 1.25vw, 1.25rem);
+
+  /* Body */
+  --type-body-lg:      1.125rem;
+  --type-body:         1rem;
+  --type-body-sm:      0.875rem;
+  --type-caption:      0.75rem;
+  --type-label:        0.6875rem;
+
+  /* Line Heights */
+  --lh-tight:          1.1;
+  --lh-heading:        1.25;
+  --lh-body:           1.6;
+  --lh-loose:          1.8;
+
+  /* Letter Spacing */
+  --ls-tight:          -0.02em;
+  --ls-normal:         0em;
+  --ls-wide:           0.05em;
+  --ls-caps:           0.12em;
+
+  /* ============================================================
+     SPACING SCALE
+     ============================================================ */
+
+  --space-1:    4px;
+  --space-2:    8px;
+  --space-3:    12px;
+  --space-4:    16px;
+  --space-5:    20px;
+  --space-6:    24px;
+  --space-8:    32px;
+  --space-10:   40px;
+  --space-12:   48px;
+  --space-16:   64px;
+  --space-20:   80px;
+  --space-24:   96px;
+  --space-32:   128px;
+
+  /* ============================================================
+     BORDER RADIUS
+     ============================================================ */
+
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   16px;
+  --radius-xl:   24px;
+  --radius-full: 9999px;
+
+  /* ============================================================
+     SHADOWS
+     ============================================================ */
+
+  --shadow-sm:   0 1px 3px rgba(36, 11, 96, 0.10);
+  --shadow-md:   0 4px 16px rgba(36, 11, 96, 0.12);
+  --shadow-lg:   0 8px 32px rgba(36, 11, 96, 0.16);
+  --shadow-xl:   0 16px 48px rgba(36, 11, 96, 0.20);
+}
+
+/* ============================================================
+   SEMANTIC ELEMENT DEFAULTS
+   ============================================================ */
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--type-body);
+  line-height: var(--lh-body);
+  color: var(--fg-primary);
+  background: var(--bg-primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-size: var(--type-h1);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--ls-tight);
+  color: var(--fg-primary);
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-size: var(--type-h2);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-heading);
+  color: var(--fg-primary);
+}
+
+h3 {
+  font-family: var(--font-display);
+  font-size: var(--type-h3);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-heading);
+  color: var(--fg-secondary);
+}
+
+p {
+  font-size: var(--type-body);
+  line-height: var(--lh-body);
+  color: var(--fg-primary);
+}
+
+code, pre {
+  font-family: var(--font-mono);
+  font-size: var(--type-body-sm);
+  background: var(--bg-subtle);
+  color: var(--fg-primary);
+  border-radius: var(--radius-sm);
+  padding: 0.1em 0.4em;
+}
+
+a {
+  color: var(--asr-sky);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--asr-purple-mid);
+  text-decoration: underline;
+}
